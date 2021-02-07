@@ -1,0 +1,4 @@
+<head>
+  <title>
+    #{title} - #{subtitle}
+  <link rel="stylesheet" type="text/css" href=@{Stylesheet}>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Happy Coffeecup - Bestellen</title>
+  <link rel="stylesheet" type="text/css" href="./order_files/bulma.css">
+</head>
+<body>
+  <nav class="navbar has-background-light has-shadow is-spaced mb-5">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="index.html"><img style="max-height: 10rem;" src="./order_files/logo.png"></a>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item" href="index.html">Home</a>
+          <a class="navbar-item" href="order.html">Bestellen</a> 
+          <a class="navbar-item" href="guestbook.html">Gästebuch</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <main class="main">
+    <div class="container">
+      <div class="box">
+        <h1 class="title">Bestellen</h1>
+        <p class="mt-5 mb-5"></p>
+        <form action="receipt.html" method="post" id="newEntry" name="newEntry">
+          <table class="table">
+            <tbody>
+              <tr>
+                <th>Anzahl</th>
+                <th>Gericht</th>
+                <th>Preis</th>
+              </tr>
+              <tr>
+                <td>
+                  <div class="field">
+                    <div class="control">
+                      <div class="select">
+                        <select class="select" name="CafeCreme" id="CafeCreme">
+                          <option>0</option>
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>5</option>
+                          <option>6</option>
+                          <option>7</option>
+                          <option>8</option>
+                          <option>9</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <p class="content">CafeCreme</p>
+                </td>
+                <td>
+                  <p class="content">1,90 €</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="field">
+                    <div class="control">
+                      <div class="select">
+                        <select class="select" name="LatteMachiato" id="LatteMachiato">
+                          <option>0</option>
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>5</option>
+                          <option>6</option>
+                          <option>7</option>
+                          <option>8</option>
+                          <option>9</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <p class="content">LatteMachiato</p>
+                </td>
+                <td>
+                  <p class="content">2,30 €</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="field">
+                    <div class="control">
+                      <div class="select">
+                        <select class="select" name="Milchkaffee" id="Milchkaffee">
+                          <option>0</option>
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>5</option>
+                          <option>6</option>
+                          <option>7</option>
+                          <option>8</option>
+                          <option>9</option>
+                       </select>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <p class="content">Milchkaffee</p>
+                </td>
+                <td>
+                  <p class="content">1,80 €</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="field">
+                    <div class="control">
+                      <div class="select">
+                        <select class="select" name="Cappuccino" id="Cappuccino">
+                          <option>0</option>
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>5</option>
+                          <option>6</option>
+                          <option>7</option>
+                          <option>8</option>
+                          <option>9</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <p class="content">Cappuccino</p>
+                </td>
+                <td>
+                  <p class="content">2,20 €</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="field">
+                    <div class="control">
+                      <div class="select">
+                        <select class="select" name="Espresso" id="Espresso">
+                          <option>0</option>
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>5</option>
+                          <option>6</option>
+                          <option>7</option>
+                          <option>8</option>
+                          <option>9</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <p class="content">Espresso</p>
+                </td>
+                <td>
+                  <p class="content">1,90 €</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="field">
+                    <div class="control">
+                      <div class="select">
+                        <select class="select" name="Kakao" id="Kakao">
+                          <option>0</option>
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>5</option>
+                          <option>6</option>
+                          <option>7</option>
+                          <option>8</option>
+                          <option>9</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <p class="content">Kakao</p>
+                </td>
+                <td>
+                  <p class="content">2,90 €</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link" type="submit">Absenden</button>
+            </div>
+            <div class="control">
+              <button class="button is-link is-light" type="reset">Abbrechen!</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

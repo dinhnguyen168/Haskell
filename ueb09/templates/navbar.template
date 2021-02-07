@@ -1,0 +1,11 @@
+<nav class="navbar has-background-light has-shadow is-spaced mb-5"> 
+    <div class="container">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="index.html">
+                    <img style="max-height: 10rem;" src=@{Logo}>
+            <div class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item" href="@{Home}">Home
+                    <a class="navbar-item" href="@{Home}">Bestellen
+                    <a class="navbar-item" href=@{Guestbook}>Gästebuch
