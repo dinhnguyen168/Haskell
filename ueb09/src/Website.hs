@@ -61,9 +61,9 @@ gbContent gB = docTypeHtml $ do
                 div ! class_ "box" $ do
                     h1 ! class_ "title" $ "Gästebuch"
                     p ! class_ "mb-5 mt-5" $ ""
-                    commentListe gB 
+                    commentList gB 
                     h1 ! class_ "title is-4" $ "Dein Kommentar"
-                    form ! action "guestbook.html" ! method "POST" ! id "newEntry" ! name "newEntry" $ do
+                    form ! action "/guestbook" ! method "POST" ! id "newEntry" ! name "newEntry" $ do
                         div ! class_ "field" $ do
                             div ! class_ "label" $ "Name"
                             div ! class_ "control" $ 
@@ -79,10 +79,9 @@ gbContent gB = docTypeHtml $ do
                                 button ! class_ "button is-link is-light" ! type_ "reset" $ "Abbrechen!"
                                 
 
-commentListe :: GuestBook -> Html 
-commentListe gB = 
+commentList :: GuestBook -> Html 
+commentList gB = 
     forM_ (entries gB) $ \x -> do
         p $ b $ toHtml $ author x
         p $ toHtml $ comment x
         p ! class_ "mb-5 mt-5" $ ""
-

@@ -3,6 +3,7 @@ module Main where
 
 import Control.Concurrent.MVar
 import Control.Monad.IO.Class (liftIO)
+
 import Text.Blaze.Html hiding (text)
 import Text.Blaze.Html.Renderer.Text
 import Web.Scotty
@@ -10,12 +11,15 @@ import Web.Scotty
 import Types
 import Website
 
+type GBList = MVar GuestBook
 
 main :: IO ()
 main = do
-  gB <- newMVar $ GuestBook []
-  scotty 5000 $ do 
-    controller gB
+  let initGB = GuestBook []
+  list <- newMVar initGB
+  scotty 3000 $ do 
+    controller list initGB
+
     -- serve static files 
     get "/static/css/bulma.css" $ do
       setHeader "Content-Type" "text/css" 
@@ -34,9 +38,28 @@ main = do
       file "static/img/cafe.jpg"
 
 
-controller :: MVar a -> ScottyM ()
-controller gB = do
-    get "/" $ 
-      html $ renderHtml $ website "Happy Coffecup" "Home" $ metaWebsite "Happy Coffecup" "Home"
-    get "/guestbook" $
-      html $ renderHtml $ gbContent (GuestBook [])
+controller :: GBList -> GuestBook -> ScottyM ()
+controller list gB = do
+  get "/" $ html $ renderHtml $ website "Happy Coffecup" "Home" $ gbContent gB
+  get "/guestbook" $ listGuestBook list
+  post "/guestbook" $ updateGuestBook list 
+
+listGuestBook :: GBList -> ActionM ()
+listGuestBook list = do
+  result <- liftIO $ readMVar list 
+  html $ renderHtml $ gbContent result
+
+updateGuestBook :: GBList -> ActionM () 
+updateGuestBook list = do
+  author <- param "author"
+  comment <- param "comment"
+  gB <- liftIO $ takeMVar list
+  liftIO $ putMVar list $ gB {entries = GuestBookEntry author comment : entries gB}
+  result <- liftIO $ readMVar list
+  html $ renderHtml $ gbContent result
+
+   
+
+
+
+

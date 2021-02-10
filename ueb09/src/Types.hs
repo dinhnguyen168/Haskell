@@ -7,6 +7,8 @@ import Data.Maybe (fromJust, isJust)
 
 newtype GuestBook = GuestBook { entries :: [GuestBookEntry] } deriving Show
 
+data Error =  CommentNotFound | UserNameNotFound    
+
 data GuestBookEntry = GuestBookEntry 
   { author :: T.Text
   , comment :: T.Text 
