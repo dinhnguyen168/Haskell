@@ -12,6 +12,7 @@ import Types
 import Website
 
 type GBList = MVar GuestBook
+type OrderList = MVar [Order]
 
 main :: IO ()
 main = do
@@ -41,16 +42,18 @@ main = do
 controller :: GBList -> GuestBook -> ScottyM ()
 controller list gB = do
   get "/" $ html $ renderHtml $ website "Happy Coffecup" "Home" $ gbContent gB
-  get "/guestbook" $ listGuestBook list
-  post "/guestbook" $ updateGuestBook list 
+  get "/guestbook" $ getGuestBooks list
+  post "/guestbook" $ postGuestBook list
+  get "/order" $ html $ renderHtml orderPage 
+  post "/receipt" $ undefined 
 
-listGuestBook :: GBList -> ActionM ()
-listGuestBook list = do
+getGuestBooks :: GBList -> ActionM ()
+getGuestBooks list = do
   result <- liftIO $ readMVar list 
   html $ renderHtml $ gbContent result
 
-updateGuestBook :: GBList -> ActionM () 
-updateGuestBook list = do
+postGuestBook :: GBList -> ActionM () 
+postGuestBook list = do
   author <- param "author"
   comment <- param "comment"
   gB <- liftIO $ takeMVar list
@@ -58,7 +61,10 @@ updateGuestBook list = do
   result <- liftIO $ readMVar list
   html $ renderHtml $ gbContent result
 
-   
+-- getOrders :: OrderList -> ActionM()
+-- getOrders orders = do
+--   rs <- liftIO $ readMVar orders
+--   html $ renderHtml $ orderPage rs
 
 
 

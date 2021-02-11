@@ -15,6 +15,8 @@ import Types
 renderUrl :: Render Route
 renderUrl Home _ = "/"
 renderUrl Guestbook _ = "/guestbook"
+renderUrl Order _ = "/order"
+renderUrl Receipt _ = "/receipt"
 renderUrl Logo _ = "/static/img/logo.png"
 renderUrl Stylesheet _ = "/static/css/bulma.css"
 renderUrl SmileImage _ = "/static/img/smile.jpg"
@@ -85,3 +87,46 @@ commentList gB =
         p $ b $ toHtml $ author x
         p $ toHtml $ comment x
         p ! class_ "mb-5 mt-5" $ ""
+
+-- Aufgabe 3
+itemToString :: Item -> String 
+itemToString CafeCreme = "CafeCreme"
+itemToString LatteMachiato = "LatteMachiato"
+itemToString Milchkaffee = "Milchkaffee"
+itemToString Cappuccino = "Cappuccino"
+itemToString Espresso = "Espresso"
+itemToString Kakao= "Kakao"
+
+showItemInfo :: String -> String-> Html 
+showItemInfo item price = $(hamletFile "templates/orderField.template") renderUrl
+
+orderPage :: Html
+orderPage = docTypeHtml $ do 
+    metaWebsite "Happy Coffecup" "Home"
+    body $ do 
+        $(hamletFile "templates/navbar.template") renderUrl --navigation Bar
+        main ! class_ "main" $
+            div ! class_ "container" $
+                div ! class_ "box" $ do
+                    h1 ! class_ "title" $ "Bestellen"
+                    p ! class_ "mb-5 mt-5" $ ""
+                    form ! action "/receipt" ! method "POST" ! id "newEntry" ! name "newEntry" $ do
+                    table ! class_ "table" $
+                        tbody $ do
+                            tr $ forM_ ["Anzahl", "Gericht", "Preis"] $ \x -> th x
+                            forM_ allItems $ \item -> showItemInfo (itemToString item) $ (showPrice .price) item 
+                    div ! class_ "field is-grouped" $ do
+                        div ! class_ "control" $
+                            button ! class_ "button is-link" ! type_ "submit" $ "Absenden"
+                        div ! class_ "control" $
+                            button ! class_ "button is-link is-light" ! type_ "reset" $ "Abbrechen!"
+
+receiptPage :: [Order] -> Html 
+receiptPage orderList = docTypeHtml $ do 
+    metaWebsite "Happy Coffecup" "Home"
+    body $ do 
+        $(hamletFile "templates/navbar.template") renderUrl --navigation Bar
+        main ! class_ "main" $
+            div ! class_ "container" $
+                div ! class_ "box" $ do
+                    undefined

@@ -67,6 +67,8 @@ readOrder (i,q) = OrderItem <$> readItem i <*> readInt q where
 data Route 
   = Home
   | Guestbook
+  | Order
+  | Receipt
   | Logo 
   | Stylesheet 
   | SmileImage

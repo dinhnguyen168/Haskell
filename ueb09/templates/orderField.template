@@ -1,0 +1,19 @@
+<tr>
+    <td>
+        <div class="field">
+            <div class="control">
+                <div class="select">
+                    <select class="select" name=#{item} id=#{item}>
+                        <option>0</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+    <td>
+        <p class="content">#{item}
+    <td>
+        <p class="content">#{price}
