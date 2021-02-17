@@ -1,0 +1,25 @@
+name:                ueb07
+version:             1.0
+build-type:          Simple
+cabal-version:       >=2.0
+
+library
+  exposed-modules:    Planner, SimpleGrphDB, Visualizer, Beispielgraphen, OptimizedGrphDB
+  hs-source-dirs:     src
+  build-depends:      base, containers, dotgen, tasty-quickcheck
+  default-language:   Haskell2010
+
+-- Unit test suite
+test-suite unit
+  type:           exitcode-stdio-1.0
+  hs-source-dirs: test
+  main-is:        UnitTest.hs
+  build-depends:  ueb07, base, tasty, tasty-hunit, tasty-quickcheck, containers
+
+-- QuickCheck test suite
+test-suite quickcheck
+  type:           exitcode-stdio-1.0
+  hs-source-dirs: test
+  main-is:        QuickCheckTest.hs
+  build-depends:  ueb07, base, tasty, tasty-hunit, tasty-quickcheck, containers
+

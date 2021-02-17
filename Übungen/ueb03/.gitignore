@@ -1,0 +1,6 @@
+*.hi
+*.o
+.stack-work
+fulltest
+src-full
+*.lock

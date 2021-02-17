@@ -1,0 +1,20 @@
+
+<h1 class="title">
+  Willkommen im Café Happy Coffeecup!
+<p class="mb-5 mt-5">
+  Kommen Sie uns im wunderschönen Bremen besuchen und probieren Sie unseren erstklassigen Kaffee.
+<p class="mb-5 mt-5">
+<div class="tile is-ancestor">
+  <div class="tile is-parent">
+    <div class="tile is-child box">
+      <figure class="image is-4by3">
+        <img class="has-ratio" src="@{SmileImage}">
+  <div class="tile is-parent is-6">
+    <div class="tile is-child box">
+      <figure class="image is-4by3">
+        <img class="has-ratio" src="@{CoffeeImage}">
+<div class="tile is-ancestor">
+  <div class="tile is-parent">
+    <div class="tile is-child box">
+      <figure class="image is-16by9">
+        <img class="has-ratio" src="@{CafeImage}">

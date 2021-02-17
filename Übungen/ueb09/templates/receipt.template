@@ -1,0 +1,30 @@
+<h1 class="title">
+  Rechnung
+<p class="mt-5 mb-5">
+  Vielen Dank für Ihre Bestellung!
+<table class="table mt-5 mb-5">
+  <tbody>
+    <tr>
+      <th>
+        Anzahl
+      <th>
+        Gericht
+      <th>
+        Preis
+    <tr>
+      <td>
+        2
+      <td>
+        CafeCreme
+      <td>
+        3,80 €
+    <tr>
+      <td>
+        3
+      <td>
+        Milchkaffee
+      <td>
+        5,40 €
+<p class="mt-5 mb-5">
+  <b>
+    Gesamtpreis: 9,20 €
